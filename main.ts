@@ -5,13 +5,12 @@ import { chmodSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const LINE =
-  "At 3 a.m. my doorbell camera filmed me unlocking my own front door, and I never left my bed.";
+  "My dead grandmother's voice whispered my childhood nickname through the baby monitor, and the nursery has been empty for three years.";
 
 if (LINE.length < 1 || LINE.length > 200) {
   throw new Error(`entry line must be 1-200 characters, got ${LINE.length}`);
 }
-const sentenceCheck = LINE.replace(/\b[ap]\.m\./gi, "");
-if (!/^[^.!?]+[.!?]$/.test(sentenceCheck)) {
+if (!/^[^.!?]+[.!?]$/.test(LINE)) {
   throw new Error("entry line must be a single sentence");
 }
 
